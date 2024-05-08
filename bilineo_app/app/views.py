@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Store, FoodItem, TrayItem
 from .templates import *
 
@@ -39,4 +39,18 @@ def tray_page(request):
       'stores': stores,
       'items': items,
    }
+   return render(request, "tray_page.html", context)
+
+def delete_tray_item(request, item_id):
+   item = get_object_or_404(TrayItem, id=item_id)
+   stores = Store.objects.all()
+   items = TrayItem.objects.all()
+   context = {
+      'stores': stores,
+      'items': items,
+   }
+
+   if request.method == 'DELETE':
+      item.delete()
+
    return render(request, "tray_page.html", context)

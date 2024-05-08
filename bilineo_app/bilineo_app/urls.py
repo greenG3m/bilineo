@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import login_page, home_desktop, messages_page, orders_page, profile_page
-from app.views import restaurant_detail_page, store_page, tray_page
+from app.views import restaurant_detail_page, store_page, tray_page, delete_tray_item
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +30,5 @@ urlpatterns = [
     path('restaurant_detail_page.html', restaurant_detail_page, name="restaurant_detail"),
     path('store_page.html/', store_page, name="store"),
     path('tray_page.html/', tray_page, name="tray"),
+    path('tray_page.html/delete/<int:item_id>/', delete_tray_item, name="delete_item"),
 ]
