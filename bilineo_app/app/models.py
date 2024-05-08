@@ -6,7 +6,7 @@ class Store(models.Model):
 
 class FoodItem(models.Model):
    food_name = models.CharField(max_length=100)
-   unit_price = models.DecimalField(max_digits=5, decimal_places=2)
+   unit_price = models.PositiveIntegerField()
    store = models.ForeignKey(Store, on_delete=models.CASCADE)
 
 class TrayItem(models.Model):
