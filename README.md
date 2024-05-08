@@ -2,8 +2,8 @@
 
 ## To-do:
 ### Frontend
-1. Create HTMLs of each functional page of BILINEO, and place under templates folder.
+1. Update HTML filename format. (Ex: home-desktop.html -> home_desktop.html)
+2. Update routing in other files to accomoodate changes in #1.
 
 ### Backend
-1. Determine models, then update 'models.py'.
-2. Update 'urls.py'; Insert paths of HTML files.
+1. Set up directory arrangements to access static files.

@@ -1,11 +1,15 @@
 from django.db import models
 
 # Create your models here.
-class TRAY_ITEM(models.Model):
+class Store(models.Model):
    store_name = models.CharField(max_length=100)
+
+class FoodItem(models.Model):
    food_name = models.CharField(max_length=100)
    unit_price = models.DecimalField(max_digits=5, decimal_places=2)
-   quantity = models.PositiveIntegerField(default=1)
+   store = models.ForeignKey(Store, on_delete=models.CASCADE)
 
-   # def __str__(self):
-      # return f"{self.food_name} at {self.store_name} (${self.unit_price})"
+class TrayItem(models.Model):
+   store_name = models.ForeignKey(Store, on_delete=models.CASCADE)
+   food_name = models.ForeignKey(FoodItem, on_delete=models.CASCADE)
+   quantity = models.PositiveIntegerField(default=1)
