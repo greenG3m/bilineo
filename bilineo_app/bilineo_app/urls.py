@@ -16,8 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import login_page, home_desktop, messages_page, orders_page, profile_page
-from app.views import restaurant_detail_page, store_page, tray_page, delete_tray_item
+from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +27,7 @@ urlpatterns = [
     path('orders_page.html/', orders_page, name="orders"),
     path('profile_page.html/', profile_page, name="profile"),
     path('restaurant_detail_page.html', restaurant_detail_page, name="restaurant_detail"),
+    path('restaurant_details_page.html/<int:id>/add_food/<int:id>/', add_food, name="add_food"),
     path('store_page.html/', store_page, name="store"),
     path('tray_page.html/', tray_page, name="tray"),
     path('tray_page.html/delete/<int:item_id>/', delete_tray_item, name="delete_item"),
